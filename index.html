@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>7-maktab Yoʻqlama Tizimi</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Firebase (modular) -->
+  <script type="module" src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <h1 class="brand">7-maktab — Yoʻqlama tizimi</h1>
+      <div id="userArea" class="user-area">
+        <button id="loginBtn" class="btn primary">Kirish</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Login / Register -->
+    <section id="authSection" class="card center">
+      <h2>Kirish yoki Ro'yxatdan o'tish</h2>
+      <input id="email" type="email" placeholder="O'qituvchi email" />
+      <input id="password" type="password" placeholder="Parol" />
+      <div class="row">
+        <button id="signin" class="btn primary">Kirish</button>
+        <button id="signup" class="btn outline">Ro'yxatdan o'tish</button>
+      </div>
+      <p class="muted">Yangi hisob uchun ro'yxatdan o'ting. (Test uchun oddiy email/parol)</p>
+    </section>
+
+    <!-- Dashboard -->
+    <section id="dashboard" class="hidden">
+      <div class="card">
+        <div class="row space-between">
+          <h2 id="classTitle">Sinflar</h2>
+          <div>
+            <select id="classSelect"></select>
+            <button id="newClassBtn" class="btn small">+ Yangi Sinf</button>
+            <button id="logout" class="btn danger small">Chiqish</button>
+          </div>
+        </div>
+
+        <!-- Add student -->
+        <div class="row">
+          <input id="studentName" placeholder="O'quvchi ismi" />
+          <input id="studentRoll" placeholder="Ro'yxat raqami (ixtiyoriy)" />
+          <button id="addStudent" class="btn">Qo'shish</button>
+        </div>
+
+        <!-- Students list -->
+        <div id="studentsWrap" class="students-grid"></div>
+
+        <!-- Actions -->
+        <div class="row space-between mt">
+          <div>
+            <input id="attendanceDate" type="date" />
+            <button id="loadDate" class="btn small">Yuklash</button>
+          </div>
+          <div>
+            <button id="reportBtn" class="btn outline">Hisobot</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Report modal / page -->
+    <section id="reportSection" class="card hidden">
+      <div class="row space-between">
+        <h2>Hisobot</h2>
+        <button id="backDash" class="btn small">Orqaga</button>
+      </div>
+      <div>
+        <label>Tanlangan o'quvchi:</label>
+        <select id="reportStudent"></select>
+        <label>Davr (boshlanish):</label>
+        <input id="reportFrom" type="date" />
+        <label>Davr (tugash):</label>
+        <input id="reportTo" type="date" />
+        <button id="generateReport" class="btn">Hisobot chiqarish</button>
+      </div>
+      <div id="reportResult" class="mt"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container muted">© 2025 7-maktab — Yoʻqlama tizimi</div>
+  </footer>
+
+  <!-- Simple tiny modal for input -->
+  <div id="promptModal" class="modal hidden">
+    <div class="modal-card">
+      <p id="promptText"></p>
+      <input id="promptInput" />
+      <div class="row">
+        <button id="promptOk" class="btn">OK</button>
+        <button id="promptCancel" class="btn outline">Bekor</button>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

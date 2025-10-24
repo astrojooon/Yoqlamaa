@@ -1,0 +1,74 @@
+:root{
+  --bg:#f6fbff;
+  --card:#ffffff;
+  --primary:#0b63d3;
+  --accent:#2b9df4;
+  --muted:#6b7280;
+  --danger:#d64545;
+  --radius:10px;
+  --container:1000px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:linear-gradient(180deg,var(--bg),#eef6ff);
+  color:#0b1c2a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* layout */
+.container{max-width:var(--container);margin:20px auto;padding:0 16px}
+.topbar{background:var(--card);box-shadow:0 2px 8px rgba(11,22,33,0.06);border-bottom:4px solid rgba(11,99,211,0.05)}
+.topbar .container{display:flex;align-items:center;justify-content:space-between;padding:12px 16px}
+.brand{margin:0;font-size:18px;color:var(--primary)}
+.user-area{display:flex;gap:8px;align-items:center}
+
+/* card */
+.card{background:var(--card);border-radius:var(--radius);padding:18px;margin-top:18px;box-shadow:0 6px 18px rgba(11,22,33,0.04)}
+.center{text-align:center}
+.hidden{display:none}
+
+/* forms & buttons */
+input[type="text"], input[type="email"], input[type="password"], input[type="date"], select{
+  padding:10px;border:1px solid #e6eefc;border-radius:8px;width:100%;max-width:360px;margin:6px 0;
+}
+.row{display:flex;gap:8px;align-items:center}
+.space-between{justify-content:space-between}
+.btn{background:#fff;border:1px solid #d8e8ff;padding:8px 12px;border-radius:8px;cursor:pointer}
+.btn.primary{background:var(--primary);color:#fff;border:none}
+.btn.outline{background:transparent;border:1px solid var(--primary);color:var(--primary)}
+.btn.danger{background:var(--danger);color:#fff;border:none}
+.btn.small{padding:6px 8px;font-size:13px}
+.muted{color:var(--muted);font-size:13px}
+.mt{margin-top:12px}
+
+/* students grid */
+.students-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;margin-top:12px}
+.student{
+  border:1px solid #eef6ff;padding:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);
+  display:flex;flex-direction:column;gap:8px;
+}
+.student .name{font-weight:600}
+.badge{display:inline-block;padding:4px 8px;border-radius:999px;font-size:13px}
+.status-row{display:flex;gap:6px}
+
+/* small status buttons */
+.sbtn{padding:6px;border-radius:6px;border:1px solid #e6eefc;cursor:pointer}
+.sbtn.keldi{background:#eaf8ea;color:#0b7d2f}
+.sbtn.kech{background:#fff7e6;color:#b26a00}
+.sbtn.qoldi{background:#fff1f1;color:#b01a1a}
+
+/* footer */
+.footer{padding:18px;text-align:center;margin-top:24px;color:var(--muted)}
+
+/* modal */
+.modal{position:fixed;left:0;top:0;right:0;bottom:0;background:rgba(4,8,15,0.35);display:flex;align-items:center;justify-content:center}
+.modal-card{background:var(--card);padding:16px;border-radius:12px;width:90%;max-width:420px}
+@media (max-width:600px){
+  .topbar .container{padding:10px}
+  .brand{font-size:16px}
+  .students-grid{grid-template-columns:repeat(1,1fr)}
+}
